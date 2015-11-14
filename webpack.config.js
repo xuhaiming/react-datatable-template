@@ -1,5 +1,5 @@
 module.exports = {
-    entry: "./main.jsx",
+    entry: "./src/main.jsx",
     output: {
         path: __dirname,
         filename: "bundle.js"
@@ -15,6 +15,10 @@ module.exports = {
                 {
                     presets:['react', 'es2015']
                 }
+            },
+            {
+                test: /\.less$/,
+                loader: "style!css!less"
             }
         ]
     }
