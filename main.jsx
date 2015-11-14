@@ -2,6 +2,7 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
+//var shim = require('es5-shim');
 
 class HelloWorld extends React.Component {
 

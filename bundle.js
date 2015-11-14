@@ -56,6 +56,7 @@
 
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
+	//var shim = require('es5-shim');
 
 	var HelloWorld = (function (_React$Component) {
 	    _inherits(HelloWorld, _React$Component);
