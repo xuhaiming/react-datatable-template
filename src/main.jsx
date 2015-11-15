@@ -2,36 +2,30 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-
-import {Table, Column, Cell} from 'fixed-data-table';
-
-require("fixed-data-table/dist/fixed-data-table.css");
+var DataTable = require('./datatable.jsx');
 require("./../styles/main.less");
 
-const rows = [
+var tableData = [];
+for (var i = 0; i < 500; i++) {
+    tableData.push({
+        name: <div>Haiming <b>{i + 1}</b></div>,
+        skill: 100 * i,
+        birthday: "2010-01-01"
+    });
+}
+
+const columnInfo = [
     {
-        name: 'Haiming',
-        skill: 1000
+        id: "name",
+        header: <div>My Name</div>
     },
     {
-        name: 'Yancey',
-        skill: 0
+        id: "skill",
+        header: "Skill"
     },
     {
-        name: 'Haiming',
-        skill: 1000
-    },
-    {
-        name: 'Yancey',
-        skill: 0
-    },
-    {
-        name: 'Haiming',
-        skill: 1000
-    },
-    {
-        name: 'Yancey',
-        skill: 0
+        id: "birthday",
+        header: "Birthday"
     }
 ];
 
@@ -42,36 +36,7 @@ class HelloWorld extends React.Component {
 
     render() {
         return (<div>
-            <Table
-                rowHeight={50}
-                rowsCount={rows.length}
-                width={500}
-                height={200}
-                headerHeight={50}>
-                <Column
-                    header={<Cell>Name</Cell>}
-                    cell={props => (
-                        <Cell {...props}>
-                          {rows[props.rowIndex].name}
-                        </Cell>
-                      )}
-                    width={200}
-                />
-                <Column
-                    header={<Cell>Skill</Cell>}
-                    cell={props => (
-                        <Cell {...props}>
-                          {rows[props.rowIndex].skill}
-                        </Cell>
-                      )}
-                    width={200}
-                />
-                <Column
-                    header={<Cell>Col 3</Cell>}
-                    cell={<Cell>Hello</Cell>}
-                    width={200}
-                />
-            </Table>
+            <DataTable data={tableData} columnInfo={columnInfo}/>
         </div>);
     }
 }
