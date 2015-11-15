@@ -34,7 +34,8 @@ class DataTable extends React.Component {
                 height={500}
                 headerHeight={50}>
                 {columns}
-            </Table>);
+            </Table>
+        );
     }
 }
 
