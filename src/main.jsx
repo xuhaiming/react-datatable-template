@@ -3,6 +3,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var DataTable = require('./datatable.jsx');
+var { Pagination } = require('react-bootstrap');
 var _ = require('lodash');
 require("./../styles/main.less");
 
@@ -32,31 +33,6 @@ const columnInfo = [
     }
 ];
 
-class PaginationBar extends React.Component {
-    constructor() {
-        super();
-    }
-
-    onPageItemClick(pageNum) {
-        this.props.setPage(pageNum);
-    }
-
-    render() {
-        var buttons = [];
-        for(var i = 1; i <= this.props.totalLength; i++){
-            var pageItem = this.props.currentPage === i ? <b>{i}</b> : <span>{i}</span>;
-            buttons.push(
-                <span key={i} onClick={this.onPageItemClick.bind(this, i)}>{pageItem}</span>
-            );
-        }
-        return (
-            <div>
-                {buttons}
-            </div>
-        );
-    }
-}
-
 class HelloWorld extends React.Component {
     constructor() {
         super();
@@ -66,9 +42,11 @@ class HelloWorld extends React.Component {
         }
     }
 
-    setCurrentPage(pageNum) {
+    setCurrentPage(event, selectedEvent) {
+        var startValue = (selectedEvent.eventKey - 1) * paginationRowCount;
         this.setState({
-            currentPage: pageNum
+            currentPage: selectedEvent.eventKey,
+            displayData: _.slice(tableData, startValue, startValue + paginationRowCount)
         })
     }
 
@@ -77,7 +55,17 @@ class HelloWorld extends React.Component {
         var pageCount = _.floor((tableData.length / paginationRowCount) + addNumber);
         return (<div>
             <DataTable data={this.state.displayData} columnInfo={columnInfo}/>
-            <PaginationBar totalLength={pageCount} currentPage={this.state.currentPage} setPage={this.setCurrentPage.bind(this)}/>
+            <Pagination
+                prev
+                next
+                first
+                last
+                ellipsis
+                items={pageCount}
+                maxButtons={5}
+                activePage={this.state.currentPage}
+                onSelect={this.setCurrentPage.bind(this)}
+                />
         </div>);
     }
 }
