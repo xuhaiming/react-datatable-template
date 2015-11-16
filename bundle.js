@@ -66,7 +66,7 @@
 	var Pagination = _require.Pagination;
 	
 	var _ = __webpack_require__(/*! lodash */ 451);
-	__webpack_require__(/*! ./../styles/main.less */ 453);
+	__webpack_require__(/*! ./../styles/main.scss */ 453);
 	
 	var paginationRowCount = 10;
 	
@@ -56727,14 +56727,14 @@
 /***/ },
 /* 453 */
 /*!**************************!*\
-  !*** ./styles/main.less ***!
+  !*** ./styles/main.scss ***!
   \**************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../~/css-loader!./../~/less-loader!./main.less */ 454);
+	var content = __webpack_require__(/*! !./../~/css-loader!./../~/sass-loader!./main.scss */ 454);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(/*! ./../~/style-loader/addStyles.js */ 213)(content, {});
@@ -56743,8 +56743,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/less-loader/index.js!./main.less", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/less-loader/index.js!./main.less");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./main.scss", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./main.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -56756,7 +56756,7 @@
 /***/ },
 /* 454 */
 /*!*********************************************************!*\
-  !*** ./~/css-loader!./~/less-loader!./styles/main.less ***!
+  !*** ./~/css-loader!./~/sass-loader!./styles/main.scss ***!
   \*********************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
@@ -56765,7 +56765,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".public_fixedDataTable_header,\n.public_fixedDataTable_header .public_fixedDataTableCell_main {\n  background: white none;\n}\n.fixedDataTableCellLayout_main {\n  border-width: 0;\n}\n", ""]);
+	exports.push([module.id, ".public_fixedDataTable_header, .public_fixedDataTable_header .public_fixedDataTableCell_main {\n  background: white none; }\n\n.fixedDataTableCellLayout_main {\n  border-width: 0; }\n", ""]);
 	
 	// exports
 
