@@ -5,6 +5,7 @@ var ReactDOM = require('react-dom');
 var DataTable = require('./datatable.jsx');
 var { Pagination } = require('react-bootstrap');
 var _ = require('lodash');
+var ShareNav = require ('./share.jsx');
 require("./../styles/main.scss");
 
 const paginationRowCount = 10;
@@ -55,18 +56,19 @@ class HelloWorld extends React.Component {
         var pageCount = _.floor((tableData.length / paginationRowCount) + addNumber);
         return (
             <div>
-            <DataTable data={this.state.displayData} columnInfo={columnInfo}/>
-            <Pagination
-                prev
-                next
-                first
-                last
-                ellipsis
-                items={pageCount}
-                maxButtons={5}
-                activePage={this.state.currentPage}
-                onSelect={this.setCurrentPage.bind(this)}
-                />
+                <ShareNav/>
+                <DataTable data={this.state.displayData} columnInfo={columnInfo}/>
+                <Pagination
+                    prev
+                    next
+                    first
+                    last
+                    ellipsis
+                    items={pageCount}
+                    maxButtons={5}
+                    activePage={this.state.currentPage}
+                    onSelect={this.setCurrentPage.bind(this)}
+                    />
             </div>
         );
     }
