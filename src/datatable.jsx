@@ -17,7 +17,7 @@ class DataTable extends React.Component {
             return (
                 <Column
                     key={column.id}
-                    header={<Cell>{column.header}</Cell>}
+                    header={<Cell>{column.columnName}</Cell>}
                     cell={props => (
                             <Cell {...props}>
                                  {rows[props.rowIndex][column.id]}

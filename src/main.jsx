@@ -5,7 +5,7 @@ var ReactDOM = require('react-dom');
 var DataTable = require('./datatable.jsx');
 var { Pagination } = require('react-bootstrap');
 var _ = require('lodash');
-var ShareNav = require ('./share.jsx');
+var ShareNav = require('./share.jsx');
 require("./../styles/main.scss");
 
 const paginationRowCount = 10;
@@ -22,15 +22,15 @@ for (var i = 0; i < 500; i++) {
 const columnInfo = [
     {
         id: "name",
-        header: <div>My Name</div>
+        columnName: <div>My Name</div>
     },
     {
         id: "skill",
-        header: "Skill"
+        columnName: "Skill"
     },
     {
         id: "birthday",
-        header: "Birthday"
+        columnName: "Birthday"
     }
 ];
 
