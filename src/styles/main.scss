@@ -31,3 +31,8 @@ body {
   width: $carouselWidth !important;
   height: $carouselHeight !important;
 }
+
+.searchBar{
+  list-style: none;
+  display: -webkit-box;
+}

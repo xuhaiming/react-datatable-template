@@ -26,6 +26,7 @@ webpackJsonp([1],[
 	var CarouselInstance = __webpack_require__(/*! ./components/carousel.jsx */ 452);
 	var _ = __webpack_require__(/*! lodash */ 453);
 	var ShareNav = __webpack_require__(/*! ./components/share.jsx */ 159);
+	var SearchBar = __webpack_require__(/*! ./components/searchBar.jsx */ 457);
 	__webpack_require__(/*! ./styles/main.scss */ 455);
 	
 	var paginationRowCount = 10;
@@ -101,6 +102,7 @@ webpackJsonp([1],[
 	                    React.createElement(ShareNav, null)
 	                ),
 	                React.createElement(CarouselInstance, null),
+	                React.createElement(SearchBar, null),
 	                React.createElement(DataTable, { data: this.state.displayData, columnInfo: columnInfo }),
 	                React.createElement(
 	                    'div',
@@ -24440,7 +24442,7 @@ webpackJsonp([1],[
 	var Carousel = _require.Carousel;
 	var CarouselItem = _require.CarouselItem;
 	
-	var init = [{ id: 1, src: 'assets/carousel.jpg' }, { id: 2, src: 'assets/carousel.jpg' }, { id: 3, src: 'assets/carousel.jpg' }];
+	var imageList = [{ id: 1, src: '#', label: 'first slide label', content: 'some content' }, { id: 2, src: '#', label: 'second slide label', content: 'some content' }, { id: 3, src: '#', label: 'third slide label', content: 'some content' }];
 	
 	var CarouselInstance = (function (_React$Component) {
 	    _inherits(CarouselInstance, _React$Component);
@@ -24451,7 +24453,7 @@ webpackJsonp([1],[
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CarouselInstance).call(this));
 	
 	        _this.state = {
-	            init: init
+	            imageList: imageList
 	        };
 	        return _this;
 	    }
@@ -24459,66 +24461,32 @@ webpackJsonp([1],[
 	    _createClass(CarouselInstance, [{
 	        key: 'render',
 	        value: function render() {
+	            var CarouselList = this.state.imageList.map(function (img) {
+	                return React.createElement(
+	                    CarouselItem,
+	                    { key: img.id },
+	                    React.createElement('img', { width: 900, height: 250, alt: '900x500', src: img.src }),
+	                    React.createElement(
+	                        'div',
+	                        { className: 'carousel-caption' },
+	                        React.createElement(
+	                            'h3',
+	                            null,
+	                            img.label
+	                        ),
+	                        React.createElement(
+	                            'p',
+	                            null,
+	                            img.content
+	                        )
+	                    )
+	                );
+	            });
+	
 	            return React.createElement(
 	                Carousel,
 	                { interval: 3000 },
-	                React.createElement(
-	                    CarouselItem,
-	                    null,
-	                    React.createElement('img', { width: 900, height: 250, alt: '900x500', src: '' }),
-	                    React.createElement(
-	                        'div',
-	                        { className: 'carousel-caption' },
-	                        React.createElement(
-	                            'h3',
-	                            null,
-	                            'First slide label'
-	                        ),
-	                        React.createElement(
-	                            'p',
-	                            null,
-	                            'Nulla vitae elit libero, a pharetra augue mollis interdum.'
-	                        )
-	                    )
-	                ),
-	                React.createElement(
-	                    CarouselItem,
-	                    null,
-	                    React.createElement('img', { width: 900, height: 250, alt: '900x500', src: '' }),
-	                    React.createElement(
-	                        'div',
-	                        { className: 'carousel-caption' },
-	                        React.createElement(
-	                            'h3',
-	                            null,
-	                            'Second slide label'
-	                        ),
-	                        React.createElement(
-	                            'p',
-	                            null,
-	                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-	                        )
-	                    )
-	                ),
-	                React.createElement(
-	                    CarouselItem,
-	                    null,
-	                    React.createElement('img', { width: 900, height: 250, alt: '900x500', src: '' }),
-	                    React.createElement(
-	                        'div',
-	                        { className: 'carousel-caption' },
-	                        React.createElement(
-	                            'h3',
-	                            null,
-	                            'Third slide label'
-	                        ),
-	                        React.createElement(
-	                            'p',
-	                            null,
-	                            'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
-	                        )
-	                    )
-	                )
+	                CarouselList
 	            );
 	        }
 	    }]);
@@ -36949,10 +36917,189 @@ webpackJsonp([1],[
 	
 	
 	// module
-	exports.push([module.id, ".navigation {\n  text-align: center; }\n\n.public_fixedDataTable_header, .public_fixedDataTable_header .public_fixedDataTableCell_main {\n  background: white none; }\n\n.fixedDataTableLayout_main {\n  margin: 33px auto 0;\n  border: 1px solid rgba(0, 0, 0, 0.1); }\n\n.pagination-container {\n  text-align: center; }\n\n.carousel {\n  width: 1000px;\n  height: 250px;\n  background-color: cadetblue;\n  margin: 0 auto; }\n\n.carousel-inner > .item > a > img, .carousel-inner > .item > img {\n  width: 1000px !important;\n  height: 250px !important; }\n", ""]);
+	exports.push([module.id, ".navigation {\n  text-align: center; }\n\n.public_fixedDataTable_header, .public_fixedDataTable_header .public_fixedDataTableCell_main {\n  background: white none; }\n\n.fixedDataTableLayout_main {\n  margin: 33px auto 0;\n  border: 1px solid rgba(0, 0, 0, 0.1); }\n\n.pagination-container {\n  text-align: center; }\n\n.carousel {\n  width: 1000px;\n  height: 250px;\n  background-color: cadetblue;\n  margin: 0 auto; }\n\n.carousel-inner > .item > a > img, .carousel-inner > .item > img {\n  width: 1000px !important;\n  height: 250px !important; }\n\n.searchBar {\n  list-style: none;\n  display: -webkit-box; }\n", ""]);
 	
 	// exports
 
+
+/***/ },
+/* 457 */
+/*!**************************************!*\
+  !*** ./src/components/searchBar.jsx ***!
+  \**************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var React = __webpack_require__(/*! react */ 1);
+	var ReactDOM = __webpack_require__(/*! react-dom */ 158);
+	
+	var SearchBar = (function (_React$Component) {
+	    _inherits(SearchBar, _React$Component);
+	
+	    function SearchBar() {
+	        _classCallCheck(this, SearchBar);
+	
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(SearchBar).call(this));
+	    }
+	
+	    _createClass(SearchBar, [{
+	        key: 'render',
+	        value: function render() {
+	            return React.createElement(
+	                'ul',
+	                { className: 'searchBar' },
+	                React.createElement(
+	                    'li',
+	                    null,
+	                    'city',
+	                    React.createElement(
+	                        'ul',
+	                        null,
+	                        React.createElement(
+	                            'li',
+	                            null,
+	                            'beijing'
+	                        ),
+	                        React.createElement(
+	                            'li',
+	                            null,
+	                            'shanghai'
+	                        ),
+	                        React.createElement(
+	                            'li',
+	                            null,
+	                            'shenzhen'
+	                        )
+	                    )
+	                ),
+	                React.createElement(
+	                    'li',
+	                    null,
+	                    'main job1',
+	                    React.createElement(
+	                        'ul',
+	                        null,
+	                        React.createElement(
+	                            'li',
+	                            null,
+	                            'sub job 1 1'
+	                        ),
+	                        React.createElement(
+	                            'li',
+	                            null,
+	                            'sub job 1 2'
+	                        ),
+	                        React.createElement(
+	                            'li',
+	                            null,
+	                            'sub job 1 3'
+	                        )
+	                    )
+	                ),
+	                React.createElement(
+	                    'li',
+	                    null,
+	                    'main job2',
+	                    React.createElement(
+	                        'ul',
+	                        null,
+	                        React.createElement(
+	                            'li',
+	                            null,
+	                            'sub job 2 1'
+	                        ),
+	                        React.createElement(
+	                            'li',
+	                            null,
+	                            'sub job 2 2'
+	                        ),
+	                        React.createElement(
+	                            'li',
+	                            null,
+	                            'sub job 2 3'
+	                        )
+	                    )
+	                ),
+	                React.createElement(
+	                    'li',
+	                    null,
+	                    'main job3',
+	                    React.createElement(
+	                        'ul',
+	                        null,
+	                        React.createElement(
+	                            'li',
+	                            null,
+	                            'sub job 3 1'
+	                        ),
+	                        React.createElement(
+	                            'li',
+	                            null,
+	                            'sub job 3 2'
+	                        ),
+	                        React.createElement(
+	                            'li',
+	                            null,
+	                            'sub job 3 3'
+	                        )
+	                    )
+	                ),
+	                React.createElement(
+	                    'li',
+	                    null,
+	                    'main job4',
+	                    React.createElement(
+	                        'ul',
+	                        null,
+	                        React.createElement(
+	                            'li',
+	                            null,
+	                            'sub job 4 1'
+	                        ),
+	                        React.createElement(
+	                            'li',
+	                            null,
+	                            'sub job 4 2'
+	                        ),
+	                        React.createElement(
+	                            'li',
+	                            null,
+	                            'sub job 4 3'
+	                        )
+	                    )
+	                ),
+	                React.createElement(
+	                    'li',
+	                    null,
+	                    'main job5'
+	                ),
+	                React.createElement(
+	                    'li',
+	                    null,
+	                    React.createElement('input', { placeholder: 'enter job' }),
+	                    React.createElement(
+	                        'button',
+	                        { value: 'search' },
+	                        'search'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return SearchBar;
+	})(React.Component);
+	
+	module.exports = SearchBar;
 
 /***/ }
 ]);

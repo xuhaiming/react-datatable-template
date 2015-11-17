@@ -7,6 +7,7 @@ var { Pagination } = require('react-bootstrap');
 var CarouselInstance = require('./components/carousel.jsx');
 var _ = require('lodash');
 var ShareNav = require('./components/share.jsx');
+var SearchBar = require('./components/searchBar.jsx');
 require("./styles/main.scss");
 
 
@@ -62,6 +63,7 @@ class HelloWorld extends React.Component {
                     <ShareNav />
                 </div>
                 <CarouselInstance />
+                <SearchBar />
                 <DataTable data={this.state.displayData} columnInfo={columnInfo}/>
                 <div className="pagination-container">
                     <Pagination
