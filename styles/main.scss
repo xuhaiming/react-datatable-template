@@ -1,3 +1,6 @@
+$carouselWidth: 100%;
+$carouselHeight:250px;
+
 body {
 
 }
@@ -8,4 +11,14 @@ body {
 
 .fixedDataTableCellLayout_main {
   border-width: 0;
+}
+
+.carousel{
+  width: $carouselWidth;
+  height: $carouselHeight;
+  background-color: cadetblue;
+}
+.carousel-inner>.item>a>img, .carousel-inner>.item>img{
+  width: $carouselWidth !important;
+  height: $carouselHeight !important;
 }

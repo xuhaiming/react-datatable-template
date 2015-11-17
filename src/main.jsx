@@ -4,9 +4,14 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var DataTable = require('./datatable.jsx');
 var { Pagination } = require('react-bootstrap');
+var CarouselInstance = require('./carousel.jsx');
 var _ = require('lodash');
 var ShareNav = require('./share.jsx');
 require("./../styles/main.scss");
+
+
+
+
 
 const paginationRowCount = 10;
 
@@ -57,6 +62,7 @@ class HelloWorld extends React.Component {
         return (
             <div>
                 <ShareNav/>
+                <CarouselInstance />
                 <DataTable data={this.state.displayData} columnInfo={columnInfo}/>
                 <Pagination
                     prev
