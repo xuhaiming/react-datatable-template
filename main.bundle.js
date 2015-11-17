@@ -24432,13 +24432,20 @@ webpackJsonp([1],[
 	var Carousel = _require.Carousel;
 	var CarouselItem = _require.CarouselItem;
 	
+	var init = [{ id: 1, src: 'assets/carousel.jpg' }, { id: 2, src: 'assets/carousel.jpg' }, { id: 3, src: 'assets/carousel.jpg' }];
+	
 	var CarouselInstance = (function (_React$Component) {
 	    _inherits(CarouselInstance, _React$Component);
 	
 	    function CarouselInstance() {
 	        _classCallCheck(this, CarouselInstance);
 	
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(CarouselInstance).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CarouselInstance).call(this));
+	
+	        _this.state = {
+	            init: init
+	        };
+	        return _this;
 	    }
 	
 	    _createClass(CarouselInstance, [{
@@ -24446,11 +24453,11 @@ webpackJsonp([1],[
 	        value: function render() {
 	            return React.createElement(
 	                Carousel,
-	                null,
+	                { interval: 3000 },
 	                React.createElement(
 	                    CarouselItem,
 	                    null,
-	                    React.createElement('img', { width: 900, height: 250, alt: '900x500', src: 'assets/carousel.jpg' }),
+	                    React.createElement('img', { width: 900, height: 250, alt: '900x500', src: '' }),
 	                    React.createElement(
 	                        'div',
 	                        { className: 'carousel-caption' },
@@ -24469,7 +24476,7 @@ webpackJsonp([1],[
 	                React.createElement(
 	                    CarouselItem,
 	                    null,
-	                    React.createElement('img', { width: 900, height: 250, alt: '900x500', src: 'assets/carousel.jpg' }),
+	                    React.createElement('img', { width: 900, height: 250, alt: '900x500', src: '' }),
 	                    React.createElement(
 	                        'div',
 	                        { className: 'carousel-caption' },
@@ -24488,7 +24495,7 @@ webpackJsonp([1],[
 	                React.createElement(
 	                    CarouselItem,
 	                    null,
-	                    React.createElement('img', { width: 900, height: 250, alt: '900x500', src: 'assets/carousel.jpg' }),
+	                    React.createElement('img', { width: 900, height: 250, alt: '900x500', src: '' }),
 	                    React.createElement(
 	                        'div',
 	                        { className: 'carousel-caption' },
