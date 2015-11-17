@@ -6,7 +6,7 @@ module.exports = {
         contact:"./src/contact.jsx"
     },
     output: {
-        filename: "[name].bundle.js"
+        filename: "./assets/js/[name].bundle.js"
     },
     module: {
         loaders: [
@@ -26,7 +26,7 @@ module.exports = {
     plugins: [
         new CommonsChunkPlugin({
             name: "commons",
-            filename: "common.js"
+            filename: "assets/js/common.js"
         })
     ]
 };

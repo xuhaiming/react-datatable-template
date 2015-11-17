@@ -76,7 +76,7 @@
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
 /******/
-/******/ 			script.src = __webpack_require__.p + "" + chunkId + "." + ({"0":"contact","1":"main"}[chunkId]||chunkId) + ".bundle.js";
+/******/ 			script.src = __webpack_require__.p + "" + chunkId + "../assets/js/" + ({"0":"contact","1":"main"}[chunkId]||chunkId) + ".bundle.js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
@@ -20152,9 +20152,9 @@
 
 /***/ },
 /* 159 */
-/*!***********************!*\
-  !*** ./src/share.jsx ***!
-  \***********************/
+/*!**********************************!*\
+  !*** ./src/components/share.jsx ***!
+  \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

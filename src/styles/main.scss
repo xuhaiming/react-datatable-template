@@ -1,22 +1,31 @@
-$carouselWidth: 100%;
+$carouselWidth: 1000px;
 $carouselHeight:250px;
 
 body {
 
 }
 
+.navigation{
+  text-align: center;
+}
+
 .public_fixedDataTable_header, .public_fixedDataTable_header .public_fixedDataTableCell_main {
   background: white none;
 }
 
-.fixedDataTableCellLayout_main {
-  border-width: 0;
+.fixedDataTableLayout_main {
+  margin: 33px auto 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.pagination-container{
+  text-align: center;
 }
 
 .carousel{
   width: $carouselWidth;
   height: $carouselHeight;
   background-color: cadetblue;
+  margin: 0 auto;
 }
 .carousel-inner>.item>a>img, .carousel-inner>.item>img{
   width: $carouselWidth !important;

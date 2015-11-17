@@ -17,16 +17,16 @@ webpackJsonp([1],[
 	
 	var React = __webpack_require__(/*! react */ 1);
 	var ReactDOM = __webpack_require__(/*! react-dom */ 158);
-	var DataTable = __webpack_require__(/*! ./datatable.jsx */ 160);
+	var DataTable = __webpack_require__(/*! ./components/datatable.jsx */ 160);
 	
 	var _require = __webpack_require__(/*! react-bootstrap */ 215);
 	
 	var Pagination = _require.Pagination;
 	
-	var CarouselInstance = __webpack_require__(/*! ./carousel.jsx */ 452);
+	var CarouselInstance = __webpack_require__(/*! ./components/carousel.jsx */ 452);
 	var _ = __webpack_require__(/*! lodash */ 453);
-	var ShareNav = __webpack_require__(/*! ./share.jsx */ 159);
-	__webpack_require__(/*! ./../styles/main.scss */ 455);
+	var ShareNav = __webpack_require__(/*! ./components/share.jsx */ 159);
+	__webpack_require__(/*! ./styles/main.scss */ 455);
 	
 	var paginationRowCount = 10;
 	
@@ -95,20 +95,28 @@ webpackJsonp([1],[
 	            return React.createElement(
 	                'div',
 	                null,
-	                React.createElement(ShareNav, null),
+	                React.createElement(
+	                    'div',
+	                    { className: 'navigation' },
+	                    React.createElement(ShareNav, null)
+	                ),
 	                React.createElement(CarouselInstance, null),
 	                React.createElement(DataTable, { data: this.state.displayData, columnInfo: columnInfo }),
-	                React.createElement(Pagination, {
-	                    prev: true,
-	                    next: true,
-	                    first: true,
-	                    last: true,
-	                    ellipsis: true,
-	                    items: pageCount,
-	                    maxButtons: 5,
-	                    activePage: this.state.currentPage,
-	                    onSelect: this.setCurrentPage.bind(this)
-	                })
+	                React.createElement(
+	                    'div',
+	                    { className: 'pagination-container' },
+	                    React.createElement(Pagination, {
+	                        prev: true,
+	                        next: true,
+	                        first: true,
+	                        last: true,
+	                        ellipsis: true,
+	                        items: pageCount,
+	                        maxButtons: 5,
+	                        activePage: this.state.currentPage,
+	                        onSelect: this.setCurrentPage.bind(this)
+	                    })
+	                )
 	            );
 	        }
 	    }]);
@@ -279,9 +287,9 @@ webpackJsonp([1],[
 /* 158 */,
 /* 159 */,
 /* 160 */
-/*!***************************!*\
-  !*** ./src/datatable.jsx ***!
-  \***************************/
+/*!**************************************!*\
+  !*** ./src/components/datatable.jsx ***!
+  \**************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -24409,9 +24417,9 @@ webpackJsonp([1],[
 
 /***/ },
 /* 452 */
-/*!**************************!*\
-  !*** ./src/carousel.jsx ***!
-  \**************************/
+/*!*************************************!*\
+  !*** ./src/components/carousel.jsx ***!
+  \*************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36902,25 +36910,25 @@ webpackJsonp([1],[
 
 /***/ },
 /* 455 */
-/*!**************************!*\
-  !*** ./styles/main.scss ***!
-  \**************************/
+/*!******************************!*\
+  !*** ./src/styles/main.scss ***!
+  \******************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../~/css-loader!./../~/sass-loader!./main.scss */ 456);
+	var content = __webpack_require__(/*! !./../../~/css-loader!./../../~/sass-loader!./main.scss */ 456);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../~/style-loader/addStyles.js */ 214)(content, {});
+	var update = __webpack_require__(/*! ./../../~/style-loader/addStyles.js */ 214)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./main.scss", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./main.scss");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./main.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./main.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -36931,17 +36939,17 @@ webpackJsonp([1],[
 
 /***/ },
 /* 456 */
-/*!*********************************************************!*\
-  !*** ./~/css-loader!./~/sass-loader!./styles/main.scss ***!
-  \*********************************************************/
+/*!*************************************************************!*\
+  !*** ./~/css-loader!./~/sass-loader!./src/styles/main.scss ***!
+  \*************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../~/css-loader/lib/css-base.js */ 213)();
+	exports = module.exports = __webpack_require__(/*! ./../../~/css-loader/lib/css-base.js */ 213)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, ".public_fixedDataTable_header, .public_fixedDataTable_header .public_fixedDataTableCell_main {\n  background: white none; }\n\n.fixedDataTableCellLayout_main {\n  border-width: 0; }\n\n.carousel {\n  width: 100%;\n  height: 250px;\n  background-color: cadetblue; }\n\n.carousel-inner > .item > a > img, .carousel-inner > .item > img {\n  width: 100% !important;\n  height: 250px !important; }\n", ""]);
+	exports.push([module.id, ".navigation {\n  text-align: center; }\n\n.public_fixedDataTable_header, .public_fixedDataTable_header .public_fixedDataTableCell_main {\n  background: white none; }\n\n.fixedDataTableLayout_main {\n  margin: 33px auto 0;\n  border: 1px solid rgba(0, 0, 0, 0.1); }\n\n.pagination-container {\n  text-align: center; }\n\n.carousel {\n  width: 1000px;\n  height: 250px;\n  background-color: cadetblue;\n  margin: 0 auto; }\n\n.carousel-inner > .item > a > img, .carousel-inner > .item > img {\n  width: 1000px !important;\n  height: 250px !important; }\n", ""]);
 	
 	// exports
 

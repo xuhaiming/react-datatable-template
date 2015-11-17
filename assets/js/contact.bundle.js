@@ -17,7 +17,7 @@ webpackJsonp([0],[
 	
 	var React = __webpack_require__(/*! react */ 1);
 	var ReactDOM = __webpack_require__(/*! react-dom */ 158);
-	var ShareNav = __webpack_require__(/*! ./share.jsx */ 159);
+	var ShareNav = __webpack_require__(/*! ./components/share.jsx */ 159);
 	
 	var ContactMe = (function (_React$Component) {
 	    _inherits(ContactMe, _React$Component);
